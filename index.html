@@ -23,7 +23,7 @@
       id="scene"
     >
       <a-assets>
-        <img id="bowser" src="1565108687_123123123ыфыв.gif">
+        <video id="bowser" autoplay loop="true" crossorigin="anonymous" src="kitten.mp4">
       </a-assets>
 
       <a-marker preset="pattern"
@@ -34,15 +34,18 @@
         cursor="fuse: false; rayOrigin: mouse;"
         id="markerA"
       >
-        <a-image
+        <a-video
           id="bowser-model"
           src="#bowser"
+          width="3" 
+          height="2" 
           position="0 0 0"
           rotation="270 0 0"
+           play="true"
           class="clickable"
           gesture-handler
         >
-        </a-image>
+        </a-video>
       </a-marker>
       <a-entity camera></a-entity>
     </a-scene>
