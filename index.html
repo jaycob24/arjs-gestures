@@ -23,11 +23,7 @@
       id="scene"
     >
       <a-assets>
-        <a-asset-item
-          id="bowser"
-          src="fft352_mf22484344.png"
-        >
-        </a-asset-item>
+        <img id="bowser" src="fft352_mf22484344.png" >
       </a-assets>
 
       <a-marker preset="pattern"
@@ -38,15 +34,13 @@
         cursor="fuse: false; rayOrigin: mouse;"
         id="markerA"
       >
-        <a-entity
+        <a-image
           id="bowser-model"
-          gltf-model="#bowser"
+          src="#bowser"
           position="0 0 0"
           scale="5 5 5"
-          class="clickable"
-          gesture-handler
         >
-        </a-entity>
+        </a-image>
       </a-marker>
       <a-entity camera></a-entity>
     </a-scene>
