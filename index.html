@@ -1,74 +1,27 @@
 <!DOCTYPE html>
-
 <html>
   <head>
-    <title>Gesture Interactions - A-Frame & AR.js</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="styles.css">
-
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Location-based AR.js demo</title>
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-    <script src="gesture-detector.js"></script>
-    <script src="gesture-handler.js"></script>
+    <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
   </head>
 
-  <body>
+  <body style="margin: 0; overflow: hidden;">
     <a-scene
-      arjs
-      embedded
-      renderer="logarithmicDepthBuffer: true;"
       vr-mode-ui="enabled: false"
-      gesture-detector
-      id="scene"
+      embedded
+      arjs="sourceType: webcam; debugUIEnabled: false;"
     >
-      <a-assets>
-        <img id="bowser1" src="fft352_mf22484344.png">
-        <video id="bowser2" autoplay loop="true" crossorigin="anonymous" src="kitten.mp4">
-      </a-assets>
-
-      <a-marker preset="pattern"
-        type="pattern"
-        url="pattern-860c75b7ea9ab5278fe0f262d54ad298.patt"
-        raycaster="objects: .clickable"
-        emitevents="true"
-        cursor="fuse: false; rayOrigin: mouse;"
-        id="markerA"
-      >
-        <a-image
-          id="bowser-model1"
-          src="#bowser1"
-          position="0 0 0"
-          scale="0.5 0.5 0.5"
-          rotation="270 0 0"
-          class="clickable"
-          gesture-handler
-        >
-        </a-image>
-      </a-marker>
-
-      <a-marker preset="pattern"
-        type="pattern"
-        url="pattern-8aeb5a415ffef24a5e5ad91cbdcc780f.patt"
-        raycaster="objects: .clickable"
-        emitevents="true"
-        cursor="fuse: false; rayOrigin: mouse;"
-        id="markerA"
-      >
-        <a-video
-          id="bowser-model2"
-          src="#bowser2"
-          width="1.5" 
-          height="1" 
-          position="0 0 0"
-          rotation="270 0 0"
-           play="true"
-          class="clickable"
-          gesture-handler
-        >
-        </a-video>
-      </a-marker>
-      <a-entity camera></a-entity>
+      <a-text
+        value="This content will always face you."
+        look-at="[gps-camera]"
+        scale="50 50 50"
+        gps-entity-place="latitude: <add-your-latitude>; longitude: <add-your-longitude>;"
+      ></a-text>
+      <a-camera gps-camera rotation-reader> </a-camera>
     </a-scene>
   </body>
 </html>
