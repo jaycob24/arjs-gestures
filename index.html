@@ -15,12 +15,22 @@
       embedded
       arjs="sourceType: webcam; debugUIEnabled: false;"
     >
-      <a-text
-        value="This content will always face you."
-        look-at="[gps-camera]"
-        scale="50 50 50"
-        gps-entity-place="latitude: 56.8869868643685; longitude: 60.58683329460816;"
-      ></a-text>
+      <a-assets>
+        <img id="bowser" src="fft352_mf22484344.png" >
+      </a-assets>
+
+      <a-image
+          id="bowser-model"
+          src="#bowser"
+          position="0 0 0"
+          scale="0.5 0.5 0.5"
+          rotation="270 0 0"
+          class="clickable"
+          gesture-handler
+          look-at="[gps-camera]"
+          gps-entity-place="latitude: 56.8869868643685; longitude: 60.58683329460816;"
+        >
+      </a-image>
       <a-camera gps-camera rotation-reader> </a-camera>
     </a-scene>
   </body>
